@@ -54,7 +54,7 @@ kubectl -n argocd rollout status deployment argocd-server
 kubectl apply -f argocd-ingress.yaml
 
 echo "🧩 Registering App of Apps..."
-kubectl apply -f app-of-apps.yaml
+kubectl apply -f ../environments/dev/app-of-apps.yaml
 
 echo "🚀 Setup complete. Access ArgoCD at: https://argocd.local"
 

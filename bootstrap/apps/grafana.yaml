@@ -4,17 +4,25 @@ metadata:
   name: grafana
   namespace: argocd
 spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
   project: default
   source:
     repoURL: https://github.com/Romiko/rancher-argocd-sandbox.git
+    path: apps/grafana
     targetRevision: HEAD
-    path: ../grafana
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: grafana
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: "grafana.image.tag"
+          value: "11.6.0"  # example override if needed
+      chart: grafana
+      repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 8.14.0
+      releaseName: grafana
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
