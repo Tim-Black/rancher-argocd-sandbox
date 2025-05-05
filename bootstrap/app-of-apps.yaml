@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Romiko/rancher-argocd-sandbox.git
     targetRevision: HEAD
-    path: bootstrap
+    path: bootstrap/apps
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
