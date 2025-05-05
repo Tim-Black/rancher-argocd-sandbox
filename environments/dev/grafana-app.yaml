@@ -7,7 +7,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: grafana
   source:
     repoURL: https://github.com/Romiko/rancher-argocd-sandbox.git
     path: apps/grafana
