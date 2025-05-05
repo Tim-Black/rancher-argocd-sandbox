@@ -1,0 +1,17 @@
+replicas: 2
+adminPassword: "admin123"
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 3000
+  nodePort: 32000
+
+persistence:
+  enabled: false
+
+sidecar:
+  dashboards:
+    enabled: false
+  datasources:
+    enabled: false

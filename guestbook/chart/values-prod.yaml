@@ -1,0 +1,3 @@
+replication: true
+replicas: 2
+serviceType: NodePort
