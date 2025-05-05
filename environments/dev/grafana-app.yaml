@@ -8,17 +8,13 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana
-  source:
-    chart: grafana
-    repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 8.14.0
-    helm:
-      releaseName: grafana
-      valueFiles:
-        - apps/grafana/values-dev.yaml  # points to values inside Git repo
-    repoURL: https://github.com/Romiko/rancher-argocd-sandbox.git
-    targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  sources:
+    - repoURL: https://grafana.github.io/helm-charts
+      chart: grafana
+      targetRevision: 8.14.0
+      helm:
+        valueFiles:
+          - $values/apps/grafana/values-dev.yaml
+    - repoURL: https://github.com/Romiko/rancher-argocd-sandbox.git
+      targetRevision: HEAD
+      ref: values
