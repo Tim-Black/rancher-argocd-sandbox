@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:Romiko/rancher-argocd-sandbox.git
+    repoURL: https://github.com/Romiko/rancher-argocd-sandbox.git
     targetRevision: HEAD
     path: ../grafana
   destination:
