@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  source:
+    repoURL: https://github.com/Romiko/rancher-argocd-sandbox.git
+    path: apps/grafana
+    targetRevision: HEAD
+    helm:
+      chart: grafana
+      repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 8.14.0
+      valueFiles:
+        - values-dev.yaml
+      releaseName: grafana
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
