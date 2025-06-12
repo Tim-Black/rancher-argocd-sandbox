@@ -16,6 +16,7 @@ metadata:
   name: sample-webapp2
   namespace: sample-webapp2
 spec:
+  class: nginx
   rules:
     - host: guestbook.uat.k8s.edg.com.au
       http:
@@ -29,5 +30,6 @@ spec:
             path: /?(.*)
   tls:
     - hosts:
-        - guestbook.uat.k8s.edg.com.au
+        - guestbook.uat.k8s.edg.com.aukubectl get endpoints guestbook-backend -n sample-webapp2 -o wide
+
       secretName: guestbook-tls
