@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: guestbook-backend
+  namespace: sample-webapp2
 spec:
   replicas: 1
   selector:
@@ -17,7 +18,7 @@ spec:
         image: tblackedg/guestbook-backend:main
         ports:
         - containerPort: 3000
-        env:
-        - name: BG_COLOR
-          # value: "#f0f8ff"  # Light blue
-          value: "#ff0000"  # Red
+        # env:
+        # - name: BG_COLOR
+        #   # value: "#f0f8ff"  # Light blue
+        #   value: "#ff0000"  # Red
