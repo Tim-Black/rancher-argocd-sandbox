@@ -24,7 +24,7 @@ spec:
               service:
                 name: guestbook-backend
                 port:
-                  number: 443
+                  number: 3000
             pathType: ImplementationSpecific
             path: /?(.*)
   tls:
