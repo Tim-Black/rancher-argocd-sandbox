@@ -17,6 +17,3 @@ spec:
         image: tblackedg/guestbook-backend:main
         ports:
         - containerPort: 3000
-        env:
-        - name: BG_COLOR
-          value: "#f0f8ff"  # Light blue
