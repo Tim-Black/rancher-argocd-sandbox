@@ -16,7 +16,6 @@ metadata:
   name: sample-webapp2
   namespace: sample-webapp2
 spec:
-  class: nginx
   rules:
     - host: guestbook.uat.k8s.edg.com.au
       http:
