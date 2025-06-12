@@ -30,6 +30,5 @@ spec:
             path: /?(.*)
   tls:
     - hosts:
-        - guestbook.uat.k8s.edg.com.aukubectl get endpoints guestbook-backend -n sample-webapp2 -o wide
-
+        - guestbook.uat.k8s.edg.com.au
       secretName: guestbook-tls
