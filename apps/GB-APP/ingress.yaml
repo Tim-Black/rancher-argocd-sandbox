@@ -24,7 +24,7 @@ spec:
                 name: guestbook-backend
                 port:
                   number: 443
-            pathType: Prefix
+            pathType: ImplementationSpecific
             path: /
   tls:
     - hosts:
