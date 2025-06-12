@@ -40,22 +40,22 @@ spec:
     app: redis
   ports:
     - port: 6379
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: guestbook-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-spec:
-  rules:
-  - host: guestbook.uat.k8s.edg.com.au
-    http:
-      paths:
-      - path: /?(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: guestbook-backend
-            port:
-              number: 80
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: guestbook-ingress
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /$1
+# spec:
+#   rules:
+#   - host: guestbook.uat.k8s.edg.com.au
+#     http:
+#       paths:
+#       - path: /?(.*)
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: guestbook-backend
+#             port:
+#               number: 80

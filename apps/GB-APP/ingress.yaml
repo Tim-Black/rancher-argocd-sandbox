@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: cluster-issuer
+    kubernetes.io/ingress.class: argocd-nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
+  name: sample-webapp2
+  namespace: sample-webapp2
+spec:
+  rules:
+    - host: guestbook.uat.k8s.edg.com.au
+      http:
+        paths:
+          - backend:
+              service:
+                name: guestbook-backend
+                port:
+                  number: 443
+            pathType: ImplementationSpecific
+            path: /
+  tls:
+    - hosts:
+        - guestbook.uat.k8s.edg.com.au
+      secretName: guestbook-tls
