@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: guestbook-backend
-  namespace: sample-webapp2
+  namespace: sample-guestbook
 spec:
   replicas: 1
   selector:
