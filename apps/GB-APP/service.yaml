@@ -14,4 +14,4 @@ spec:
     - port: 80          # Service port (HTTP)
       targetPort: 3000  # Container port where backend listens
       protocol: TCP
-  type: ClusterIP      # Expose the service externally only when on VPN
+  type: LoadBalancer      # Expose the service externally only when on VPN
