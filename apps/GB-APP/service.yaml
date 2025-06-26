@@ -3,11 +3,14 @@ kind: Service
 metadata:
   name: guestbook-backend
   namespace: sample-guestbook
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
+  externalTrafficPolicy: Local
   selector:
     app: guestbook
   ports:
     - port: 80          # Service port (HTTP)
       targetPort: 3000  # Container port where backend listens
       protocol: TCP
-  type: ClusterIP       # No LoadBalancer needed, Ingress will handle external traffic
+  type: LoadBalancer      # Expose the service externally only when on VPN
