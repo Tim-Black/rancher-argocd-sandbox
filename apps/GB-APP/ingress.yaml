@@ -4,7 +4,7 @@ metadata:
   name: guestbook-ingress
   namespace: sample-guestbook
   annotations:
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: argocd-nginx 
     cert-manager.io/cluster-issuer: cluster-issuer
     nginx.ingress.kubernetes.io/proxy-buffer-size: 16k
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
