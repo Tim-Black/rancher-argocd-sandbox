@@ -8,8 +8,8 @@ metadata:
     cert-manager.io/cluster-issuer: cluster-issuer
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  # Redirect HTTP to HTTPS
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-    controller.service.externalTrafficPolicy: "Local"
 spec:
+  externalTrafficPolicy: Local
   tls:
     - hosts:
         - guestbook.uat.k8s.edg.com.au
